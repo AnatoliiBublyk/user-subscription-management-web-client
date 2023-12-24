@@ -1,0 +1,31 @@
+.menu-container {
+    width: 100%;
+    padding: 0 6rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.switch-container button {
+    padding: 0 12px;
+    height: 24px;
+}
+
+.subscription-form {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 6rem;
+}
+
+.subscription-block {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+
+    border: 1px solid #ccc;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.1);
+}

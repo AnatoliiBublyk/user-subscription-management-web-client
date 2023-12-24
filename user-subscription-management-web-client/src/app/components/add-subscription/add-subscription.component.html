@@ -1,0 +1,33 @@
+<app-header></app-header>
+<form #myForm="ngForm" (ngSubmit)="onSubmit($event)" class="subscription-form">
+    <div class="w-100 d-flex justify-content-center">
+        <div class="w-75">
+            <div *ngFor="let subscription of subscriptions" class="subscription-block">
+                <div class="w-100 d-flex align-items-start justify-content-between">
+                  <div>
+                    <label for="check-product0" class="cursor__pointer form-check-label text-primary font-weight-bold">
+                      {{ subscription.title }}: {{subscription.key ?? "" | capitalize}}
+                    </label>
+                    <p class="text-muted">{{ subscription.description }}</p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <span class="me-2">{{ subscription.price | currency:'USD':'symbol':'1.2-2' }}</span>
+                    <input *ngIf="isSubscriptionCheckedAndDisabled(subscription)" [checked]="true" [disabled]="true"
+                      class="cursor__pointer form-check-input border border-primary" type="checkbox"
+                      id="check-{{ subscription.id }}">
+                    <input *ngIf="!isSubscriptionCheckedAndDisabled(subscription)" [checked]="subscription.isChecked" [disabled]="false"
+                      (change)="onCheckBoxChange(subscription)"
+                      class="cursor__pointer form-check-input border border-primary" type="checkbox"
+                      id="check-{{ subscription.id }}">
+                  </div>
+                </div>
+              </div>
+              
+
+            <!-- Subscribe button outside the loop -->
+            <div class="d-flex flex-row justify-content-end">
+                <button type="submit" class="btn btn-outline-success mx-1">Subscribe</button>
+            </div>
+        </div>
+    </div>
+</form>
