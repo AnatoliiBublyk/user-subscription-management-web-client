@@ -1,0 +1,59 @@
+/* login.component.css */
+.login-container {
+    width: 300px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error-message-container {
+    height: 30px;
+}
+
+.error-message {
+    color: red;
+}
+
+button {
+    background-color: #00a8ea;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+    background-color: #007b80;
+}

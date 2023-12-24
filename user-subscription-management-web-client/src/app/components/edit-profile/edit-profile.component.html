@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div class="container w-25 mt-3 d-flex flex-column justify-content-center edit-container">
+    <h3 class="text-center">Edit Profile</h3>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm, $event)">
+        <div class="mb-2">
+            <label for="firstName" class="form-label fw-bold">First Name:</label>
+            <input type="text" id="firstName" name="first_name" class="form-control" placeholder="First name"
+                [(ngModel)]="userProfile.first_name" required #firstNameControl="ngModel">
+            <div *ngIf="firstNameControl.invalid && (firstNameControl.dirty || firstNameControl.touched)"
+                class="text-danger">First Name is required.
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="lastName" class="form-label fw-bold">Last Name:</label>
+            <input type="text" id="lastName" name="last_name" class="form-control" placeholder="Last name"
+                [(ngModel)]="userProfile.last_name" required #lastNameControl="ngModel">
+            <div *ngIf="lastNameControl.invalid && (lastNameControl.dirty || lastNameControl.touched)"
+                class="text-danger">Last Name is required.
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="email" class="form-label fw-bold">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email address"
+                [(ngModel)]="userProfile.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
+                #emailControl="ngModel">
+            <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)"
+                class="text-danger">Email is required and must be a valid email address.
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="address" class="form-label fw-bold">Address:</label>
+            <input type="text" id="address" name="address" class="form-control" placeholder="Address"
+                [(ngModel)]="userProfile.address" required #addressControl="ngModel">
+            <div *ngIf="addressControl.invalid && (addressControl.dirty || addressControl.touched)"
+                class="text-danger">Address is required.
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="phone" class="form-label fw-bold">Phone:</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone number"
+                [(ngModel)]="userProfile.phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+                #phoneControl="ngModel">
+            <div *ngIf="phoneControl.invalid && (phoneControl.dirty || phoneControl.touched)"
+                class="text-danger">Phone number is required and should be of 000-000-0000 format.
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="zip" class="form-label fw-bold">ZIP Code:</label>
+            <input type="text" id="zip" name="zip" class="form-control" placeholder="Postal code"
+                [(ngModel)]="userProfile.zip" required #zipControl="ngModel">
+            <div *ngIf="zipControl.invalid && (zipControl.dirty || zipControl.touched)"
+                class="text-danger">ZIP code is required.
+            </div>
+        </div>
+
+        <div class="mb-2 d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-primary mx-1">Save Changes</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<app-header></app-header>
+<form #myForm="ngForm" (ngSubmit)="onSubmit($event)" class="subscription-form">
+    <div class="w-100 d-flex justify-content-center">
+        <div class="w-75">
+            <div *ngFor="let subscription of userSubscriptions"
+                class="subscription-block">
+                <span class="oi oi-info me-3 ms-1 text-info" data-toggle="tooltip" title=""
+                    data-bs-original-title=""></span>
+                <label for="check-product0"
+                    class="cursor__pointer form-check-label text-primary font-weight-bold w-100 pb-2 pt-2">
+                    {{ subscription.title }}: {{subscription.key ?? "" | capitalize}}
+                </label>
+                <span class="me-2">{{ subscription.price | currency:'USD':'symbol':'1.2-2' }}</span>
+                <input [checked]="subscription.isChecked" [disabled]="false"
+                    (change)="onCheckBoxChange(subscription)"
+                    class="cursor__pointer form-check-input border border-primary" type="checkbox"
+                    id="check-{{ subscription.id }}">
+            </div>
+
+            <div class="d-flex flex-row justify-content-end">
+                <button type="submit" class="btn btn-outline-danger mx-1">Unsubscribe</button>
+            </div>
+        </div>
+    </div>
+</form>
